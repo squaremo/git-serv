@@ -10,6 +10,8 @@ RUN \
 COPY ./root.pub /root/.ssh/authorized_keys
 COPY ./git.pub /home/git/.ssh/authorized_keys
 
+RUN ssh-keygen -A
+
 USER git
 RUN cd /home/git && mkdir repo && cd repo && git init --bare
 
